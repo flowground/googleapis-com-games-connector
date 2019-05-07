@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "language": {
+            "type": "string"
+        },
+        "matchId": {
+            "required": true,
+            "type": "string"
+        },
+        "matchVersion": {
+            "required": true,
+            "type": "integer"
+        },
+        "pendingParticipantId": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "includeRankType": {
+            "type": "string",
+            "enum": [
+                "ALL",
+                "PUBLIC",
+                "SOCIAL"
+            ]
+        },
+        "language": {
+            "type": "string"
+        },
+        "leaderboardId": {
+            "required": true,
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "playerId": {
+            "required": true,
+            "type": "string"
+        },
+        "timeSpan": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "ALL",
+                "ALL_TIME",
+                "DAILY",
+                "WEEKLY"
+            ]
+        }
+    }
+}

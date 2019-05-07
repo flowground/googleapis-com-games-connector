@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "includeMatchData": {
+            "type": "boolean"
+        },
+        "language": {
+            "type": "string"
+        },
+        "maxCompletedMatches": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 500
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 500
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

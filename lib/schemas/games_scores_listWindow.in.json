@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "collection": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "PUBLIC",
+                "SOCIAL",
+                "SOCIAL_1P"
+            ]
+        },
+        "language": {
+            "type": "string"
+        },
+        "leaderboardId": {
+            "required": true,
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "resultsAbove": {
+            "type": "integer"
+        },
+        "returnTopIfAbsent": {
+            "type": "boolean"
+        },
+        "timeSpan": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "ALL_TIME",
+                "DAILY",
+                "WEEKLY"
+            ]
+        }
+    }
+}

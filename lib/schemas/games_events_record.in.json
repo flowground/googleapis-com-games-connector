@@ -1,0 +1,108 @@
+{
+    "type": "object",
+    "properties": {
+        "language": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "This is a JSON template for an event period update resource.",
+            "properties": {
+                "currentTimeMillis": {
+                    "description": "The current time when this update was sent, in milliseconds, since 1970 UTC (Unix Epoch).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "kind": {
+                    "default": "games#eventRecordRequest",
+                    "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#eventRecordRequest.",
+                    "type": "string"
+                },
+                "requestId": {
+                    "description": "The request ID used to identify this attempt to record events.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "timePeriods": {
+                    "description": "A list of the time period updates being made in this request.",
+                    "items": {
+                        "description": "This is a JSON template for an event period update resource.",
+                        "properties": {
+                            "kind": {
+                                "default": "games#eventPeriodUpdate",
+                                "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#eventPeriodUpdate.",
+                                "type": "string"
+                            },
+                            "timePeriod": {
+                                "description": "The time period being covered by this update.",
+                                "properties": {
+                                    "kind": {
+                                        "default": "games#eventPeriodRange",
+                                        "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#eventPeriodRange.",
+                                        "type": "string"
+                                    },
+                                    "periodEndMillis": {
+                                        "description": "The time when this update period ends, in millis, since 1970 UTC (Unix Epoch).",
+                                        "format": "int64",
+                                        "type": "string"
+                                    },
+                                    "periodStartMillis": {
+                                        "description": "The time when this update period begins, in millis, since 1970 UTC (Unix Epoch).",
+                                        "format": "int64",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "updates": {
+                                "description": "The updates being made for this time period.",
+                                "items": {
+                                    "description": "This is a JSON template for an event period update resource.",
+                                    "properties": {
+                                        "definitionId": {
+                                            "description": "The ID of the event being modified in this update.",
+                                            "type": "string"
+                                        },
+                                        "kind": {
+                                            "default": "games#eventUpdateRequest",
+                                            "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#eventUpdateRequest.",
+                                            "type": "string"
+                                        },
+                                        "updateCount": {
+                                            "description": "The number of times this event occurred in this time period.",
+                                            "format": "int64",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

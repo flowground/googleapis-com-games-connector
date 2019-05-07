@@ -1,0 +1,88 @@
+{
+    "type": "object",
+    "properties": {
+        "language": {
+            "type": "string"
+        },
+        "matchId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "This is a JSON template for a turn-based match results object.",
+            "properties": {
+                "data": {
+                    "description": "The final match data.",
+                    "properties": {
+                        "data": {
+                            "description": "The byte representation of the data (limited to 128 kB), as a Base64-encoded string with the URL_SAFE encoding option.",
+                            "format": "byte",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "default": "games#turnBasedMatchDataRequest",
+                            "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#turnBasedMatchDataRequest.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "kind": {
+                    "default": "games#turnBasedMatchResults",
+                    "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#turnBasedMatchResults.",
+                    "type": "string"
+                },
+                "matchVersion": {
+                    "description": "The version of the match being updated.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "results": {
+                    "description": "The match results for the participants in the match.",
+                    "items": {
+                        "description": "This is a JSON template for a result for a match participant.",
+                        "properties": {
+                            "kind": {
+                                "default": "games#participantResult",
+                                "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#participantResult.",
+                                "type": "string"
+                            },
+                            "participantId": {
+                                "description": "The ID of the participant.",
+                                "type": "string"
+                            },
+                            "placing": {
+                                "description": "The placement or ranking of the participant in the match results; a number from one to the number of participants in the match. Multiple participants may have the same placing value in case of a type.",
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "result": {
+                                "description": "The result of the participant for this match.\nPossible values are:  \n- \"MATCH_RESULT_WIN\" - The participant won the match. \n- \"MATCH_RESULT_LOSS\" - The participant lost the match. \n- \"MATCH_RESULT_TIE\" - The participant tied the match. \n- \"MATCH_RESULT_NONE\" - There was no winner for the match (nobody wins or loses this kind of game.) \n- \"MATCH_RESULT_DISCONNECT\" - The participant disconnected / left during the match. \n- \"MATCH_RESULT_DISAGREED\" - Different clients reported different results for this participant.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

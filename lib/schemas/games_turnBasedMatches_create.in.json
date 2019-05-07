@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "language": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "This is a JSON template for a turn-based match creation request.",
+            "properties": {
+                "autoMatchingCriteria": {
+                    "description": "Criteria for auto-matching players into this match.",
+                    "properties": {
+                        "exclusiveBitmask": {
+                            "description": "A bitmask indicating when auto-matches are valid. When ANDed with other exclusive bitmasks, the result must be zero. Can be used to support exclusive roles within a game.",
+                            "format": "int64",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "default": "games#turnBasedAutoMatchingCriteria",
+                            "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#turnBasedAutoMatchingCriteria.",
+                            "type": "string"
+                        },
+                        "maxAutoMatchingPlayers": {
+                            "description": "The maximum number of players that should be added to the match by auto-matching.",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "minAutoMatchingPlayers": {
+                            "description": "The minimum number of players that should be added to the match by auto-matching.",
+                            "format": "int32",
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                },
+                "invitedPlayerIds": {
+                    "description": "The player ids to invite to the match.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "kind": {
+                    "default": "games#turnBasedMatchCreateRequest",
+                    "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#turnBasedMatchCreateRequest.",
+                    "type": "string"
+                },
+                "requestId": {
+                    "description": "A randomly generated numeric ID. This number is used at the server to ensure that the request is handled correctly across retries.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "variant": {
+                    "description": "The variant / mode of the application to be played. This can be any integer value, or left blank. You should use a small number of variants to keep the auto-matching pool as large as possible.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

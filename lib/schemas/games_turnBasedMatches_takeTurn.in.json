@@ -1,0 +1,92 @@
+{
+    "type": "object",
+    "properties": {
+        "language": {
+            "type": "string"
+        },
+        "matchId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "This is a JSON template for the object representing a turn.",
+            "properties": {
+                "data": {
+                    "description": "The shared game state data after the turn is over.",
+                    "properties": {
+                        "data": {
+                            "description": "The byte representation of the data (limited to 128 kB), as a Base64-encoded string with the URL_SAFE encoding option.",
+                            "format": "byte",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "default": "games#turnBasedMatchDataRequest",
+                            "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#turnBasedMatchDataRequest.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "kind": {
+                    "default": "games#turnBasedMatchTurn",
+                    "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#turnBasedMatchTurn.",
+                    "type": "string"
+                },
+                "matchVersion": {
+                    "description": "The version of this match: an increasing counter, used to avoid out-of-date updates to the match.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "pendingParticipantId": {
+                    "description": "The ID of the participant who should take their turn next. May be set to the current player's participant ID to update match state without changing the turn. If not set, the match will wait for other player(s) to join via automatching; this is only valid if automatch criteria is set on the match with remaining slots for automatched players.",
+                    "type": "string"
+                },
+                "results": {
+                    "description": "The match results for the participants in the match.",
+                    "items": {
+                        "description": "This is a JSON template for a result for a match participant.",
+                        "properties": {
+                            "kind": {
+                                "default": "games#participantResult",
+                                "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#participantResult.",
+                                "type": "string"
+                            },
+                            "participantId": {
+                                "description": "The ID of the participant.",
+                                "type": "string"
+                            },
+                            "placing": {
+                                "description": "The placement or ranking of the participant in the match results; a number from one to the number of participants in the match. Multiple participants may have the same placing value in case of a type.",
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "result": {
+                                "description": "The result of the participant for this match.\nPossible values are:  \n- \"MATCH_RESULT_WIN\" - The participant won the match. \n- \"MATCH_RESULT_LOSS\" - The participant lost the match. \n- \"MATCH_RESULT_TIE\" - The participant tied the match. \n- \"MATCH_RESULT_NONE\" - There was no winner for the match (nobody wins or loses this kind of game.) \n- \"MATCH_RESULT_DISCONNECT\" - The participant disconnected / left during the match. \n- \"MATCH_RESULT_DISAGREED\" - Different clients reported different results for this participant.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,951 @@
+{
+    "title": "Google Play Game Services",
+    "description": "The API for Google Play Game Services.",
+    "docsUrl": "https://developers.google.com/games/services/",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/games/v1/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.googleapis.com/games/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "games_achievementDefinitions_list": {
+            "main": "./lib/actions/games_achievementDefinitions_list.js",
+            "title": "Lists all the achievement definitions for your application.",
+            "description": "Lists all the achievement definitions for your application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_achievementDefinitions_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_achievements_updateMultiple": {
+            "main": "./lib/actions/games_achievements_updateMultiple.js",
+            "title": "Updates multiple achievements for the currently authenticated player.",
+            "description": "Updates multiple achievements for the currently authenticated player.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_achievements_updateMultiple.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_achievements_increment": {
+            "main": "./lib/actions/games_achievements_increment.js",
+            "title": "Increments the steps of the achievement with the given ID for the currently authenticated player.",
+            "description": "Increments the steps of the achievement with the given ID for the currently authenticated player.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_achievements_increment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_achievements_reveal": {
+            "main": "./lib/actions/games_achievements_reveal.js",
+            "title": "Sets the state of the achievement with the given ID to REVEALED for the currently authenticated player.",
+            "description": "Sets the state of the achievement with the given ID to REVEALED for the currently authenticated player.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_achievements_reveal.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_achievements_setStepsAtLeast": {
+            "main": "./lib/actions/games_achievements_setStepsAtLeast.js",
+            "title": "Sets the steps for the currently authenticated player towards unlocking an achievement. If the steps parameter is less than the current number of steps that the player already gained for the achievement, the achievement is not modified.",
+            "description": "Sets the steps for the currently authenticated player towards unlocking an achievement. If the steps parameter is less than the current number of steps that the player already gained for the achievement, the achievement is not modified.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_achievements_setStepsAtLeast.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_achievements_unlock": {
+            "main": "./lib/actions/games_achievements_unlock.js",
+            "title": "Unlocks this achievement for the currently authenticated player.",
+            "description": "Unlocks this achievement for the currently authenticated player.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_achievements_unlock.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_applications_played": {
+            "main": "./lib/actions/games_applications_played.js",
+            "title": "Indicate that the the currently authenticated user is playing your application.",
+            "description": "Indicate that the the currently authenticated user is playing your application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_applications_played.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_applications_get": {
+            "main": "./lib/actions/games_applications_get.js",
+            "title": "Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified platformType, the returned response will not include any instance data.",
+            "description": "Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified platformType, the returned response will not include any instance data.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_applications_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_applications_verify": {
+            "main": "./lib/actions/games_applications_verify.js",
+            "title": "Verifies the auth token provided with this request is for the application with the specified ID, and returns the ID of the player it was granted for.",
+            "description": "Verifies the auth token provided with this request is for the application with the specified ID, and returns the ID of the player it was granted for.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_applications_verify.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_events_listDefinitions": {
+            "main": "./lib/actions/games_events_listDefinitions.js",
+            "title": "Returns a list of the event definitions in this application.",
+            "description": "Returns a list of the event definitions in this application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_events_listDefinitions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_events_listByPlayer": {
+            "main": "./lib/actions/games_events_listByPlayer.js",
+            "title": "Returns a list showing the current progress on events in this application for the currently authenticated user.",
+            "description": "Returns a list showing the current progress on events in this application for the currently authenticated user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_events_listByPlayer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_events_record": {
+            "main": "./lib/actions/games_events_record.js",
+            "title": "Records a batch of changes to the number of times events have occurred for the currently authenticated user of this application.",
+            "description": "Records a batch of changes to the number of times events have occurred for the currently authenticated user of this application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_events_record.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_leaderboards_list": {
+            "main": "./lib/actions/games_leaderboards_list.js",
+            "title": "Lists all the leaderboard metadata for your application.",
+            "description": "Lists all the leaderboard metadata for your application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_leaderboards_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_scores_submitMultiple": {
+            "main": "./lib/actions/games_scores_submitMultiple.js",
+            "title": "Submits multiple scores to leaderboards.",
+            "description": "Submits multiple scores to leaderboards.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_scores_submitMultiple.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_leaderboards_get": {
+            "main": "./lib/actions/games_leaderboards_get.js",
+            "title": "Retrieves the metadata of the leaderboard with the given ID.",
+            "description": "Retrieves the metadata of the leaderboard with the given ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_leaderboards_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_scores_submit": {
+            "main": "./lib/actions/games_scores_submit.js",
+            "title": "Submits a score to the specified leaderboard.",
+            "description": "Submits a score to the specified leaderboard.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_scores_submit.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_scores_list": {
+            "main": "./lib/actions/games_scores_list.js",
+            "title": "Lists the scores in a leaderboard, starting from the top.",
+            "description": "Lists the scores in a leaderboard, starting from the top.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_scores_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_scores_listWindow": {
+            "main": "./lib/actions/games_scores_listWindow.js",
+            "title": "Lists the scores in a leaderboard around (and including) a player's score.",
+            "description": "Lists the scores in a leaderboard around (and including) a player's score.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_scores_listWindow.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_metagame_getMetagameConfig": {
+            "main": "./lib/actions/games_metagame_getMetagameConfig.js",
+            "title": "Return the metagame configuration data for the calling application.",
+            "description": "Return the metagame configuration data for the calling application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_metagame_getMetagameConfig.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_players_list": {
+            "main": "./lib/actions/games_players_list.js",
+            "title": "Get the collection of players for the currently authenticated user.",
+            "description": "Get the collection of players for the currently authenticated user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_players_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_players_get": {
+            "main": "./lib/actions/games_players_get.js",
+            "title": "Retrieves the Player resource with the given ID. To retrieve the player for the currently authenticated user, set playerId to me.",
+            "description": "Retrieves the Player resource with the given ID. To retrieve the player for the currently authenticated user, set playerId to me.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_players_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_achievements_list": {
+            "main": "./lib/actions/games_achievements_list.js",
+            "title": "Lists the progress for all your application's achievements for the currently authenticated player.",
+            "description": "Lists the progress for all your application's achievements for the currently authenticated player.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_achievements_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_metagame_listCategoriesByPlayer": {
+            "main": "./lib/actions/games_metagame_listCategoriesByPlayer.js",
+            "title": "List play data aggregated per category for the player corresponding to playerId.",
+            "description": "List play data aggregated per category for the player corresponding to playerId.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_metagame_listCategoriesByPlayer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_scores_get": {
+            "main": "./lib/actions/games_scores_get.js",
+            "title": "Get high scores, and optionally ranks, in leaderboards for the currently authenticated player. For a specific time span, leaderboardId can be set to ALL to retrieve data for all leaderboards in a given time span.\nNOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request; only one parameter may be set to 'ALL'.",
+            "description": "Get high scores, and optionally ranks, in leaderboards for the currently authenticated player. For a specific time span, leaderboardId can be set to ALL to retrieve data for all leaderboards in a given time span.\nNOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request; only one parameter may be set to 'ALL'.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_scores_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_quests_list": {
+            "main": "./lib/actions/games_quests_list.js",
+            "title": "Get a list of quests for your application and the currently authenticated player.",
+            "description": "Get a list of quests for your application and the currently authenticated player.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_quests_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_snapshots_list": {
+            "main": "./lib/actions/games_snapshots_list.js",
+            "title": "Retrieves a list of snapshots created by your application for the player corresponding to the player ID.",
+            "description": "Retrieves a list of snapshots created by your application for the player corresponding to the player ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_snapshots_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_pushtokens_update": {
+            "main": "./lib/actions/games_pushtokens_update.js",
+            "title": "Registers a push token for the current user and application.",
+            "description": "Registers a push token for the current user and application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_pushtokens_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_pushtokens_remove": {
+            "main": "./lib/actions/games_pushtokens_remove.js",
+            "title": "Removes a push token for the current user and application. Removing a non-existent push token will report success.",
+            "description": "Removes a push token for the current user and application. Removing a non-existent push token will report success.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_pushtokens_remove.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_quests_accept": {
+            "main": "./lib/actions/games_quests_accept.js",
+            "title": "Indicates that the currently authorized user will participate in the quest.",
+            "description": "Indicates that the currently authorized user will participate in the quest.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_quests_accept.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_questMilestones_claim": {
+            "main": "./lib/actions/games_questMilestones_claim.js",
+            "title": "Report that a reward for the milestone corresponding to milestoneId for the quest corresponding to questId has been claimed by the currently authorized user.",
+            "description": "Report that a reward for the milestone corresponding to milestoneId for the quest corresponding to questId has been claimed by the currently authorized user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_questMilestones_claim.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_revisions_check": {
+            "main": "./lib/actions/games_revisions_check.js",
+            "title": "Checks whether the games client is out of date.",
+            "description": "Checks whether the games client is out of date.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_revisions_check.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_rooms_list": {
+            "main": "./lib/actions/games_rooms_list.js",
+            "title": "Returns invitations to join rooms.",
+            "description": "Returns invitations to join rooms.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_rooms_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_rooms_create": {
+            "main": "./lib/actions/games_rooms_create.js",
+            "title": "Create a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
+            "description": "Create a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_rooms_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_rooms_get": {
+            "main": "./lib/actions/games_rooms_get.js",
+            "title": "Get the data for a room.",
+            "description": "Get the data for a room.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_rooms_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_rooms_decline": {
+            "main": "./lib/actions/games_rooms_decline.js",
+            "title": "Decline an invitation to join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
+            "description": "Decline an invitation to join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_rooms_decline.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_rooms_dismiss": {
+            "main": "./lib/actions/games_rooms_dismiss.js",
+            "title": "Dismiss an invitation to join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
+            "description": "Dismiss an invitation to join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_rooms_dismiss.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_rooms_join": {
+            "main": "./lib/actions/games_rooms_join.js",
+            "title": "Join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
+            "description": "Join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_rooms_join.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_rooms_leave": {
+            "main": "./lib/actions/games_rooms_leave.js",
+            "title": "Leave a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
+            "description": "Leave a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_rooms_leave.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_rooms_reportStatus": {
+            "main": "./lib/actions/games_rooms_reportStatus.js",
+            "title": "Updates sent by a client reporting the status of peers in a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
+            "description": "Updates sent by a client reporting the status of peers in a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_rooms_reportStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_snapshots_get": {
+            "main": "./lib/actions/games_snapshots_get.js",
+            "title": "Retrieves the metadata for a given snapshot ID.",
+            "description": "Retrieves the metadata for a given snapshot ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_snapshots_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_turnBasedMatches_list": {
+            "main": "./lib/actions/games_turnBasedMatches_list.js",
+            "title": "Returns turn-based matches the player is or was involved in.",
+            "description": "Returns turn-based matches the player is or was involved in.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_turnBasedMatches_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_turnBasedMatches_create": {
+            "main": "./lib/actions/games_turnBasedMatches_create.js",
+            "title": "Create a turn-based match.",
+            "description": "Create a turn-based match.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_turnBasedMatches_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_turnBasedMatches_sync": {
+            "main": "./lib/actions/games_turnBasedMatches_sync.js",
+            "title": "Returns turn-based matches the player is or was involved in that changed since the last sync call, with the least recent changes coming first. Matches that should be removed from the local cache will have a status of MATCH_DELETED.",
+            "description": "Returns turn-based matches the player is or was involved in that changed since the last sync call, with the least recent changes coming first. Matches that should be removed from the local cache will have a status of MATCH_DELETED.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_turnBasedMatches_sync.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_turnBasedMatches_get": {
+            "main": "./lib/actions/games_turnBasedMatches_get.js",
+            "title": "Get the data for a turn-based match.",
+            "description": "Get the data for a turn-based match.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_turnBasedMatches_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_turnBasedMatches_cancel": {
+            "main": "./lib/actions/games_turnBasedMatches_cancel.js",
+            "title": "Cancel a turn-based match.",
+            "description": "Cancel a turn-based match.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_turnBasedMatches_cancel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_turnBasedMatches_decline": {
+            "main": "./lib/actions/games_turnBasedMatches_decline.js",
+            "title": "Decline an invitation to play a turn-based match.",
+            "description": "Decline an invitation to play a turn-based match.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_turnBasedMatches_decline.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_turnBasedMatches_dismiss": {
+            "main": "./lib/actions/games_turnBasedMatches_dismiss.js",
+            "title": "Dismiss a turn-based match from the match list. The match will no longer show up in the list and will not generate notifications.",
+            "description": "Dismiss a turn-based match from the match list. The match will no longer show up in the list and will not generate notifications.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_turnBasedMatches_dismiss.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_turnBasedMatches_finish": {
+            "main": "./lib/actions/games_turnBasedMatches_finish.js",
+            "title": "Finish a turn-based match. Each player should make this call once, after all results are in. Only the player whose turn it is may make the first call to Finish, and can pass in the final match state.",
+            "description": "Finish a turn-based match. Each player should make this call once, after all results are in. Only the player whose turn it is may make the first call to Finish, and can pass in the final match state.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_turnBasedMatches_finish.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_turnBasedMatches_join": {
+            "main": "./lib/actions/games_turnBasedMatches_join.js",
+            "title": "Join a turn-based match.",
+            "description": "Join a turn-based match.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_turnBasedMatches_join.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_turnBasedMatches_leave": {
+            "main": "./lib/actions/games_turnBasedMatches_leave.js",
+            "title": "Leave a turn-based match when it is not the current player's turn, without canceling the match.",
+            "description": "Leave a turn-based match when it is not the current player's turn, without canceling the match.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_turnBasedMatches_leave.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_turnBasedMatches_leaveTurn": {
+            "main": "./lib/actions/games_turnBasedMatches_leaveTurn.js",
+            "title": "Leave a turn-based match during the current player's turn, without canceling the match.",
+            "description": "Leave a turn-based match during the current player's turn, without canceling the match.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_turnBasedMatches_leaveTurn.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_turnBasedMatches_rematch": {
+            "main": "./lib/actions/games_turnBasedMatches_rematch.js",
+            "title": "Create a rematch of a match that was previously completed, with the same participants. This can be called by only one player on a match still in their list; the player must have called Finish first. Returns the newly created match; it will be the caller's turn.",
+            "description": "Create a rematch of a match that was previously completed, with the same participants. This can be called by only one player on a match still in their list; the player must have called Finish first. Returns the newly created match; it will be the caller's turn.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_turnBasedMatches_rematch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "games_turnBasedMatches_takeTurn": {
+            "main": "./lib/actions/games_turnBasedMatches_takeTurn.js",
+            "title": "Commit the results of a player turn.",
+            "description": "Commit the results of a player turn.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/games_turnBasedMatches_takeTurn.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,80 @@
+{
+    "type": "object",
+    "properties": {
+        "language": {
+            "type": "string"
+        },
+        "roomId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "This is a JSON template for an update on the status of peers in a room.",
+            "properties": {
+                "kind": {
+                    "default": "games#roomP2PStatuses",
+                    "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#roomP2PStatuses.",
+                    "type": "string"
+                },
+                "updates": {
+                    "description": "The updates for the peers.",
+                    "items": {
+                        "description": "This is a JSON template for an update on the status of a peer in a room.",
+                        "properties": {
+                            "connectionSetupLatencyMillis": {
+                                "description": "The amount of time in milliseconds it took to establish connections with this peer.",
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "error": {
+                                "description": "The error code in event of a failure.\nPossible values are:  \n- \"P2P_FAILED\" - The client failed to establish a P2P connection with the peer. \n- \"PRESENCE_FAILED\" - The client failed to register to receive P2P connections. \n- \"RELAY_SERVER_FAILED\" - The client received an error when trying to use the relay server to establish a P2P connection with the peer.",
+                                "type": "string"
+                            },
+                            "error_reason": {
+                                "description": "More detailed diagnostic message returned in event of a failure.",
+                                "type": "string"
+                            },
+                            "kind": {
+                                "default": "games#roomP2PStatus",
+                                "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#roomP2PStatus.",
+                                "type": "string"
+                            },
+                            "participantId": {
+                                "description": "The ID of the participant.",
+                                "type": "string"
+                            },
+                            "status": {
+                                "description": "The status of the peer in the room.\nPossible values are:  \n- \"CONNECTION_ESTABLISHED\" - The client established a P2P connection with the peer. \n- \"CONNECTION_FAILED\" - The client failed to establish directed presence with the peer.",
+                                "type": "string"
+                            },
+                            "unreliableRoundtripLatencyMillis": {
+                                "description": "The amount of time in milliseconds it took to send packets back and forth on the unreliable channel with this peer.",
+                                "format": "int32",
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

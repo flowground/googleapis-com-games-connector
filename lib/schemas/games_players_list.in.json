@@ -1,0 +1,36 @@
+{
+    "type": "object",
+    "properties": {
+        "collection": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "connected",
+                "playedWith",
+                "played_with",
+                "visible"
+            ]
+        },
+        "language": {
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

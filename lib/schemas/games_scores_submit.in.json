@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "language": {
+            "type": "string"
+        },
+        "leaderboardId": {
+            "required": true,
+            "type": "string"
+        },
+        "score": {
+            "required": true,
+            "type": "string"
+        },
+        "scoreTag": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

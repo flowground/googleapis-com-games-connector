@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "achievementId": {
+            "required": true,
+            "type": "string"
+        },
+        "steps": {
+            "required": true,
+            "type": "integer",
+            "minimum": 1
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

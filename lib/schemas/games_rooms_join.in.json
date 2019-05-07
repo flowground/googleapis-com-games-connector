@@ -1,0 +1,100 @@
+{
+    "type": "object",
+    "properties": {
+        "language": {
+            "type": "string"
+        },
+        "roomId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "This is a JSON template for a join room request.",
+            "properties": {
+                "capabilities": {
+                    "description": "The capabilities that this client supports for realtime communication.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "clientAddress": {
+                    "description": "Client address for the player joining the room.",
+                    "properties": {
+                        "kind": {
+                            "default": "games#roomClientAddress",
+                            "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#roomClientAddress.",
+                            "type": "string"
+                        },
+                        "xmppAddress": {
+                            "description": "The XMPP address of the client on the Google Games XMPP network.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "kind": {
+                    "default": "games#roomJoinRequest",
+                    "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#roomJoinRequest.",
+                    "type": "string"
+                },
+                "networkDiagnostics": {
+                    "description": "Network diagnostics for the client joining the room.",
+                    "properties": {
+                        "androidNetworkSubtype": {
+                            "description": "The Android network subtype.",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "androidNetworkType": {
+                            "description": "The Android network type.",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "iosNetworkType": {
+                            "description": "iOS network type as defined in Reachability.h.",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "kind": {
+                            "default": "games#networkDiagnostics",
+                            "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#networkDiagnostics.",
+                            "type": "string"
+                        },
+                        "networkOperatorCode": {
+                            "description": "The MCC+MNC code for the client's network connection. On Android: http://developer.android.com/reference/android/telephony/TelephonyManager.html#getNetworkOperator() On iOS, see: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html",
+                            "type": "string"
+                        },
+                        "networkOperatorName": {
+                            "description": "The name of the carrier of the client's network connection. On Android: http://developer.android.com/reference/android/telephony/TelephonyManager.html#getNetworkOperatorName() On iOS: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html#//apple_ref/occ/instp/CTCarrier/carrierName",
+                            "type": "string"
+                        },
+                        "registrationLatencyMillis": {
+                            "description": "The amount of time in milliseconds it took for the client to establish a connection with the XMPP server.",
+                            "format": "int32",
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

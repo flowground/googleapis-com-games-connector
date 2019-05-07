@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "language": {
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 25
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "playerId": {
+            "required": true,
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

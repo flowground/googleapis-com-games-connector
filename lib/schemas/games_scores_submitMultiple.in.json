@@ -1,0 +1,71 @@
+{
+    "type": "object",
+    "properties": {
+        "language": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "This is a JSON template for a list of score submission requests",
+            "properties": {
+                "kind": {
+                    "default": "games#playerScoreSubmissionList",
+                    "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#playerScoreSubmissionList.",
+                    "type": "string"
+                },
+                "scores": {
+                    "description": "The score submissions.",
+                    "items": {
+                        "description": "This is a JSON template for a request to submit a score to leaderboards.",
+                        "properties": {
+                            "kind": {
+                                "default": "games#scoreSubmission",
+                                "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#scoreSubmission.",
+                                "type": "string"
+                            },
+                            "leaderboardId": {
+                                "description": "The leaderboard this score is being submitted to.",
+                                "type": "string"
+                            },
+                            "score": {
+                                "description": "The new score being submitted.",
+                                "format": "int64",
+                                "type": "string"
+                            },
+                            "scoreTag": {
+                                "description": "Additional information about this score. Values will contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986.",
+                                "pattern": "[a-zA-Z0-9-._~]{0,64}",
+                                "type": "string"
+                            },
+                            "signature": {
+                                "description": "Signature Values will contain URI-safe characters as defined by section 2.3 of RFC 3986.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

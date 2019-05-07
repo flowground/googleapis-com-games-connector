@@ -1,0 +1,353 @@
+{
+    "type": "object",
+    "properties": {
+        "language": {
+            "type": "string"
+        },
+        "roomId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "This is a JSON template for a leave room request.",
+            "properties": {
+                "kind": {
+                    "default": "games#roomLeaveRequest",
+                    "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#roomLeaveRequest.",
+                    "type": "string"
+                },
+                "leaveDiagnostics": {
+                    "description": "Diagnostics for a player leaving the room.",
+                    "properties": {
+                        "androidNetworkSubtype": {
+                            "description": "Android network subtype. http://developer.android.com/reference/android/net/NetworkInfo.html#getSubtype()",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "androidNetworkType": {
+                            "description": "Android network type. http://developer.android.com/reference/android/net/NetworkInfo.html#getType()",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "iosNetworkType": {
+                            "description": "iOS network type as defined in Reachability.h.",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "kind": {
+                            "default": "games#roomLeaveDiagnostics",
+                            "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#roomLeaveDiagnostics.",
+                            "type": "string"
+                        },
+                        "networkOperatorCode": {
+                            "description": "The MCC+MNC code for the client's network connection. On Android: http://developer.android.com/reference/android/telephony/TelephonyManager.html#getNetworkOperator() On iOS, see: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html",
+                            "type": "string"
+                        },
+                        "networkOperatorName": {
+                            "description": "The name of the carrier of the client's network connection. On Android: http://developer.android.com/reference/android/telephony/TelephonyManager.html#getNetworkOperatorName() On iOS: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html#//apple_ref/occ/instp/CTCarrier/carrierName",
+                            "type": "string"
+                        },
+                        "peerSession": {
+                            "description": "Diagnostics about all peer sessions.",
+                            "items": {
+                                "description": "This is a JSON template for peer session diagnostics.",
+                                "properties": {
+                                    "connectedTimestampMillis": {
+                                        "description": "Connected time in milliseconds.",
+                                        "format": "int64",
+                                        "type": "string"
+                                    },
+                                    "kind": {
+                                        "default": "games#peerSessionDiagnostics",
+                                        "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#peerSessionDiagnostics.",
+                                        "type": "string"
+                                    },
+                                    "participantId": {
+                                        "description": "The participant ID of the peer.",
+                                        "type": "string"
+                                    },
+                                    "reliableChannel": {
+                                        "description": "Reliable channel diagnostics.",
+                                        "properties": {
+                                            "bytesReceived": {
+                                                "description": "Number of bytes received.",
+                                                "properties": {
+                                                    "count": {
+                                                        "description": "The number of messages sent between a pair of peers.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "kind": {
+                                                        "default": "games#aggregateStats",
+                                                        "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#aggregateStats.",
+                                                        "type": "string"
+                                                    },
+                                                    "max": {
+                                                        "description": "The maximum amount.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "min": {
+                                                        "description": "The minimum amount.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "sum": {
+                                                        "description": "The total number of bytes sent for messages between a pair of peers.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "bytesSent": {
+                                                "description": "Number of bytes sent.",
+                                                "properties": {
+                                                    "count": {
+                                                        "description": "The number of messages sent between a pair of peers.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "kind": {
+                                                        "default": "games#aggregateStats",
+                                                        "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#aggregateStats.",
+                                                        "type": "string"
+                                                    },
+                                                    "max": {
+                                                        "description": "The maximum amount.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "min": {
+                                                        "description": "The minimum amount.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "sum": {
+                                                        "description": "The total number of bytes sent for messages between a pair of peers.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "kind": {
+                                                "default": "games#peerChannelDiagnostics",
+                                                "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#peerChannelDiagnostics.",
+                                                "type": "string"
+                                            },
+                                            "numMessagesLost": {
+                                                "description": "Number of messages lost.",
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "numMessagesReceived": {
+                                                "description": "Number of messages received.",
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "numMessagesSent": {
+                                                "description": "Number of messages sent.",
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "numSendFailures": {
+                                                "description": "Number of send failures.",
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "roundtripLatencyMillis": {
+                                                "description": "Roundtrip latency stats in milliseconds.",
+                                                "properties": {
+                                                    "count": {
+                                                        "description": "The number of messages sent between a pair of peers.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "kind": {
+                                                        "default": "games#aggregateStats",
+                                                        "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#aggregateStats.",
+                                                        "type": "string"
+                                                    },
+                                                    "max": {
+                                                        "description": "The maximum amount.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "min": {
+                                                        "description": "The minimum amount.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "sum": {
+                                                        "description": "The total number of bytes sent for messages between a pair of peers.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "unreliableChannel": {
+                                        "description": "Unreliable channel diagnostics.",
+                                        "properties": {
+                                            "bytesReceived": {
+                                                "description": "Number of bytes received.",
+                                                "properties": {
+                                                    "count": {
+                                                        "description": "The number of messages sent between a pair of peers.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "kind": {
+                                                        "default": "games#aggregateStats",
+                                                        "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#aggregateStats.",
+                                                        "type": "string"
+                                                    },
+                                                    "max": {
+                                                        "description": "The maximum amount.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "min": {
+                                                        "description": "The minimum amount.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "sum": {
+                                                        "description": "The total number of bytes sent for messages between a pair of peers.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "bytesSent": {
+                                                "description": "Number of bytes sent.",
+                                                "properties": {
+                                                    "count": {
+                                                        "description": "The number of messages sent between a pair of peers.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "kind": {
+                                                        "default": "games#aggregateStats",
+                                                        "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#aggregateStats.",
+                                                        "type": "string"
+                                                    },
+                                                    "max": {
+                                                        "description": "The maximum amount.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "min": {
+                                                        "description": "The minimum amount.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "sum": {
+                                                        "description": "The total number of bytes sent for messages between a pair of peers.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "kind": {
+                                                "default": "games#peerChannelDiagnostics",
+                                                "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#peerChannelDiagnostics.",
+                                                "type": "string"
+                                            },
+                                            "numMessagesLost": {
+                                                "description": "Number of messages lost.",
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "numMessagesReceived": {
+                                                "description": "Number of messages received.",
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "numMessagesSent": {
+                                                "description": "Number of messages sent.",
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "numSendFailures": {
+                                                "description": "Number of send failures.",
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "roundtripLatencyMillis": {
+                                                "description": "Roundtrip latency stats in milliseconds.",
+                                                "properties": {
+                                                    "count": {
+                                                        "description": "The number of messages sent between a pair of peers.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "kind": {
+                                                        "default": "games#aggregateStats",
+                                                        "description": "Uniquely identifies the type of this resource. Value is always the fixed string games#aggregateStats.",
+                                                        "type": "string"
+                                                    },
+                                                    "max": {
+                                                        "description": "The maximum amount.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "min": {
+                                                        "description": "The minimum amount.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    },
+                                                    "sum": {
+                                                        "description": "The total number of bytes sent for messages between a pair of peers.",
+                                                        "format": "int64",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "socketsUsed": {
+                            "description": "Whether or not sockets were used.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "reason": {
+                    "description": "Reason for leaving the match.\nPossible values are:  \n- \"PLAYER_LEFT\" - The player chose to leave the room.. \n- \"GAME_LEFT\" - The game chose to remove the player from the room. \n- \"REALTIME_ABANDONED\" - The player switched to another application and abandoned the room. \n- \"REALTIME_PEER_CONNECTION_FAILURE\" - The client was unable to establish a connection to other peer(s). \n- \"REALTIME_SERVER_CONNECTION_FAILURE\" - The client was unable to communicate with the server. \n- \"REALTIME_SERVER_ERROR\" - The client received an error response when it tried to communicate with the server. \n- \"REALTIME_TIMEOUT\" - The client timed out while waiting for a room. \n- \"REALTIME_CLIENT_DISCONNECTING\" - The client disconnects without first calling Leave. \n- \"REALTIME_SIGN_OUT\" - The user signed out of G+ while in the room. \n- \"REALTIME_GAME_CRASHED\" - The game crashed. \n- \"REALTIME_ROOM_SERVICE_CRASHED\" - RoomAndroidService crashed. \n- \"REALTIME_DIFFERENT_CLIENT_ROOM_OPERATION\" - Another client is trying to enter a room. \n- \"REALTIME_SAME_CLIENT_ROOM_OPERATION\" - The same client is trying to enter a new room.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
