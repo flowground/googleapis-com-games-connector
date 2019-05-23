@@ -27482,13 +27482,14 @@
                 "description": "Oauth 2.0 authentication",
                 "type": "oauth2",
                 "flows": {
-                    "implicit": {
+                    "authorizationCode": {
                         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
                         "scopes": {
                             "https://www.googleapis.com/auth/drive.appdata": "View and manage its own configuration data in your Google Drive",
                             "https://www.googleapis.com/auth/games": "Create, edit, and delete your Google Play Games activity",
                             "https://www.googleapis.com/auth/plus.me": "Know who you are on Google"
-                        }
+                        },
+                        "tokenUrl": "https://www.googleapis.com/oauth2/v4/token"
                     }
                 }
             }
